@@ -1,0 +1,55 @@
+:host {
+  display: inline-block;
+}
+
+.app-btn {
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* Sizes */
+.app-btn--sm {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.app-btn--md {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+.app-btn--lg {
+  padding: 0.7rem 1.75rem;
+  font-size: 1.1rem;
+}
+
+/* States */
+.app-btn--idle {
+  background-color: #4a6cf7;
+  color: #ffffff;
+}
+
+.app-btn--idle:hover {
+  background-color: #3b5de7;
+  box-shadow: 0 2px 8px rgba(74, 108, 247, 0.35);
+}
+
+.app-btn--active {
+  background-color: #1d4ed8;
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.3);
+}
+
+.app-btn--active:hover {
+  background-color: #1e40af;
+}
+
+.app-btn--greyed-out {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

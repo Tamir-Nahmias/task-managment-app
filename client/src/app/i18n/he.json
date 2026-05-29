@@ -1,0 +1,66 @@
+{
+  "app": {
+    "title": "מנהל משימות"
+  },
+  "nav": {
+    "createTask": "צור משימה",
+    "editTask": "ערוך משימה",
+    "watchTasks": "צפה במשימות"
+  },
+  "form": {
+    "createTitle": "יצירת משימה חדשה",
+    "editTitle": "עריכת משימה",
+    "labels": {
+      "title": "כותרת",
+      "description": "תיאור",
+      "status": "סטטוס",
+      "priority": "עדיפות",
+      "dueDate": "תאריך יעד"
+    },
+    "placeholders": {
+      "title": "הזן כותרת משימה",
+      "description": "הזן תיאור משימה",
+      "dueDate": "בחר תאריך יעד"
+    },
+    "buttons": {
+      "create": "צור",
+      "update": "עדכן",
+      "cancel": "ביטול"
+    }
+  },
+  "table": {
+    "headers": {
+      "actions": "פעולות",
+      "dueDate": "תאריך יעד",
+      "priority": "עדיפות",
+      "status": "סטטוס",
+      "description": "תיאור",
+      "title": "כותרת"
+    },
+    "actions": {
+      "edit": "עריכה",
+      "delete": "מחיקה"
+    },
+    "empty": "לא נמצאו משימות."
+  },
+  "status": {
+    "pending": "ממתין",
+    "inProgress": "בתהליך"
+  },
+  "priority": {
+    "low": "נמוכה",
+    "medium": "בינונית",
+    "high": "גבוהה"
+  },
+  "pages": {
+    "watchTasks": {
+      "title": "כל המשימות"
+    },
+    "editTask": {
+      "noSelection": "לא נבחרה משימה לעריכה.",
+      "selectPrompt": "בחר משימה מ",
+      "tasksList": "רשימת המשימות",
+      "selectSuffix": " באמצעות אייקון העריכה."
+    }
+  }
+}

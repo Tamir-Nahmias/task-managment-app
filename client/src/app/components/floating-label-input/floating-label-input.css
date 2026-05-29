@@ -1,0 +1,67 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.floating-field {
+  position: relative;
+  width: 100%;
+}
+
+.floating-field__input {
+  width: 100%;
+  padding: 1.25rem 0.75rem 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: transparent;
+  resize: vertical;
+}
+
+.floating-field__input:focus {
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.15);
+}
+
+.floating-field__label {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #6b7280;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: white;
+  padding: 0 4px;
+}
+
+textarea ~ .floating-field__label {
+  top: 1.25rem;
+}
+
+.floating-field__input:focus ~ .floating-field__label,
+.floating-field--has-value .floating-field__label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: #4a6cf7;
+  font-weight: 500;
+}
+
+.floating-field--invalid .floating-field__input {
+  border-color: #dc3545;
+}
+
+.floating-field--invalid .floating-field__input:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+.floating-field__error {
+  display: block;
+  font-size: 0.8rem;
+  color: #dc3545;
+  margin-top: 0.25rem;
+}

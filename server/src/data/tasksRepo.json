@@ -9,16 +9,6 @@
       "status": "ממתינה",
       "createdAt": "2025-01-15",
       "updatedAt": "2025-01-15"
-    },
-    {
-      "id": "f4a191d9-5419-4357-ab4c-0f696f25e335",
-      "title": "New Task",
-      "description": "Task description",
-      "status": "pending",
-      "priority": "medium",
-      "dueDate": "2026-06-15",
-      "createdAt": "2026-05-29T06:51:13.117Z",
-      "updatedAt": "2026-05-29T06:51:13.118Z"
     }
   ]
 }

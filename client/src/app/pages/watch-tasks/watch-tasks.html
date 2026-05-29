@@ -1,0 +1,12 @@
+<section class="py-4 w-100">
+  <h2 class="mb-4 fw-bold">{{ 'pages.watchTasks.title' | translate }}</h2>
+
+  @if (tasks$ | async; as tasks) {
+    <app-task-table
+      [headers]="tableHeaders"
+      [data]="tasks"
+      (edit)="onEdit($event)"
+      (delete)="onDelete($event)"
+    />
+  }
+</section>

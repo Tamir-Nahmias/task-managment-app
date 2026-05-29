@@ -44,8 +44,12 @@ export class MyComponent {
 
 ## Styling
 
-- Use Bootstrap 5 utility classes for layout and styling.
-- Component-specific styles go in the component's `.css` file.
+- Use Bootstrap 5 utility classes inline on HTML elements for layout and styling (e.g. `d-flex`, `flex-row`, `justify-content-between`, `w-100`, `px-3`, `gap-2`).
+- Use responsive breakpoint variants where applicable (e.g. `px-md-4`, `gap-md-3`, `d-md-flex`).
+- Always ensure responsiveness: use `w-100`, `container-fluid`, responsive padding (`px-3 px-md-4`), and test layouts at mobile widths.
+- Set `:host { display: block; width: 100%; }` in component CSS so Angular components fill their parent.
+- Component-specific custom styles go in the component's `.css` file -- but prefer Bootstrap classes over custom CSS whenever possible.
+- Do NOT write custom CSS that duplicates what Bootstrap utility classes already provide.
 
 ## HTTP
 

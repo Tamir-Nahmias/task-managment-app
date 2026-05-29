@@ -1,0 +1,23 @@
+<header class="w-100">
+  <nav class="w-100 d-flex flex-row justify-content-between align-items-center bg-white shadow-sm px-3 px-md-4 py-3 border-bottom">
+    <a class="fw-bold fs-5 text-primary text-decoration-none" href="#">{{ 'app.title' | translate }}</a>
+
+    <ul class="d-flex flex-row gap-2 gap-md-3 mb-0 ps-0" style="list-style: none;">
+      @for (item of navItems; track item.route) {
+        <li>
+          <app-button
+            [label]="item.label"
+            [size]="'md'"
+            [btnState]="getButtonState(item.route)"
+            (clicked)="onNavClick(item.route)"
+            [routerLink]="item.route"
+          />
+        </li>
+      }
+    </ul>
+  </nav>
+</header>
+
+<main class="container-fluid px-3 px-md-4 mt-4">
+  <router-outlet />
+</main>

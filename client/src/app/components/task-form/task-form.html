@@ -1,0 +1,63 @@
+<div class="d-flex flex-column align-items-center w-100 px-3">
+  <div class="task-form-container w-100">
+    <h2 class="mb-4 fw-bold text-center">
+      @if (mode() === 'create') {
+        {{ 'form.createTitle' | translate }}
+      } @else {
+        {{ 'form.editTitle' | translate }}
+      }
+    </h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column gap-3">
+      <app-floating-label-input
+        [label]="'form.labels.title' | translate"
+        [placeholder]="'form.placeholders.title' | translate"
+        [type]="'text'"
+        [control]="getControl('title')"
+      />
+
+      <app-floating-label-input
+        [label]="'form.labels.description' | translate"
+        [placeholder]="'form.placeholders.description' | translate"
+        [type]="'textarea'"
+        [control]="getControl('description')"
+      />
+
+      <div class="floating-field">
+        <select class="form-select" formControlName="status">
+          @for (opt of statusOptions; track opt.value) {
+            <option [value]="opt.value">{{ opt.label }}</option>
+          }
+        </select>
+        <label class="form-label text-muted small">{{ 'form.labels.status' | translate }}</label>
+      </div>
+
+      <div class="floating-field">
+        <select class="form-select" formControlName="priority">
+          @for (opt of priorityOptions; track opt.value) {
+            <option [value]="opt.value">{{ opt.label }}</option>
+          }
+        </select>
+        <label class="form-label text-muted small">{{ 'form.labels.priority' | translate }}</label>
+      </div>
+
+      @if (mode() === 'create') {
+        <app-floating-label-input
+          [label]="'form.labels.dueDate' | translate"
+          [placeholder]="'form.placeholders.dueDate' | translate"
+          [type]="'date'"
+          [control]="getControl('dueDate')"
+        />
+      }
+
+      <div class="d-flex flex-row gap-3 mt-3 justify-content-start">
+        <button type="submit" class="btn btn-primary px-4">
+          {{ mode() === 'create' ? ('form.buttons.create' | translate) : ('form.buttons.update' | translate) }}
+        </button>
+        <button type="button" class="btn btn-danger px-4" (click)="onCancel()">
+          {{ 'form.buttons.cancel' | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

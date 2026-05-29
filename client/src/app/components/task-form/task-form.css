@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.task-form-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.floating-field {
+  position: relative;
+}
+
+.floating-field .form-label {
+  margin-bottom: 0.25rem;
+}

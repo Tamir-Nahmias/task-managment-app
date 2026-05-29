@@ -1,0 +1,15 @@
+{
+  "TASK_NOT_FOUND": "Task with id {id} not found",
+  "TASK_CREATE_FAILED": "Failed to create task",
+  "TASK_UPDATE_FAILED": "Failed to update task",
+  "TASK_PATCH_FAILED": "Failed to patch task",
+  "TASK_REMOVE_FAILED": "Failed to remove task",
+  "TASK_READ_FAILED": "Failed to read tasks",
+  "VALIDATION": {
+    "TITLE_REQUIRED": "Title is required",
+    "TITLE_STRING": "Title must be a string",
+    "STATUS_INVALID": "Invalid status value",
+    "PRIORITY_INVALID": "Invalid priority value",
+    "DUE_DATE_INVALID": "Invalid due date"
+  }
+}

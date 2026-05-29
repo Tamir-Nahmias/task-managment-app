@@ -1,0 +1,14 @@
+<button
+  type="button"
+  class="btn app-btn"
+  [class.app-btn--sm]="size() === 'sm'"
+  [class.app-btn--md]="size() === 'md'"
+  [class.app-btn--lg]="size() === 'lg'"
+  [class.app-btn--idle]="btnState() === 'idle'"
+  [class.app-btn--active]="btnState() === 'active'"
+  [class.app-btn--greyed-out]="btnState() === 'greyed-out'"
+  [disabled]="btnState() === 'greyed-out'"
+  (click)="onClick()"
+>
+  {{ label() }}
+</button>

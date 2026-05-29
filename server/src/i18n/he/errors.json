@@ -1,0 +1,15 @@
+{
+  "TASK_NOT_FOUND": "המשימה עם מזהה {id} לא נמצאה",
+  "TASK_CREATE_FAILED": "יצירת המשימה נכשלה",
+  "TASK_UPDATE_FAILED": "עדכון המשימה נכשל",
+  "TASK_PATCH_FAILED": "עדכון חלקי של המשימה נכשל",
+  "TASK_REMOVE_FAILED": "מחיקת המשימה נכשלה",
+  "TASK_READ_FAILED": "קריאת המשימות נכשלה",
+  "VALIDATION": {
+    "TITLE_REQUIRED": "שדה כותרת הוא שדה חובה",
+    "TITLE_STRING": "שדה כותרת חייב להיות טקסט",
+    "STATUS_INVALID": "סטטוס לא חוקי",
+    "PRIORITY_INVALID": "עדיפות לא חוקית",
+    "DUE_DATE_INVALID": "תאריך יעד לא חוקי"
+  }
+}

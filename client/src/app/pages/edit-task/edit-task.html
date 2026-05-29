@@ -1,0 +1,15 @@
+<section class="py-4 w-100">
+  @if (taskId()) {
+    <app-task-form
+      [mode]="'edit'"
+      [taskData]="taskData()"
+      (formSubmit)="onFormSubmit($event)"
+      (formCancel)="onFormCancel()"
+    />
+  } @else {
+    <div class="text-center text-muted py-5">
+      <p class="fs-5">{{ 'pages.editTask.noSelection' | translate }}</p>
+      <p>{{ 'pages.editTask.selectPrompt' | translate }}<a routerLink="/home/watch-tasks">{{ 'pages.editTask.tasksList' | translate }}</a>{{ 'pages.editTask.selectSuffix' | translate }}</p>
+    </div>
+  }
+</section>
