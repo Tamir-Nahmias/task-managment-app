@@ -15,3 +15,10 @@
 .floating-field .form-label {
   margin-bottom: 0.25rem;
 }
+
+@media (max-width: 425px) {
+  .task-form-container {
+    max-width: 100%;
+    padding: 0 0.25rem;
+  }
+}

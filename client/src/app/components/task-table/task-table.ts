@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy, input, output } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, output, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 import { TaskInterface } from '../../models/task.model';
+import { BreakpointService } from '../../services/breakpoint.service';
 
 @Component({
   selector: 'app-task-table',
@@ -11,6 +12,8 @@ import { TaskInterface } from '../../models/task.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskTableComponent {
+  bp = inject(BreakpointService);
+
   headers = input.required<string[]>();
   data = input.required<TaskInterface[]>();
 

@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy, input, output, inject, OnInit, effect } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, ChangeDetectionStrategy, input, output, inject, effect } from '@angular/core';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { FloatingLabelInputComponent } from '../floating-label-input/floating-label-input';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 import { TranslateService } from '../../i18n/translate.service';
@@ -14,8 +14,7 @@ export type FormMode = 'create' | 'edit';
   styleUrl: './task-form.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TaskFormComponent implements OnInit {
-  private fb = inject(FormBuilder);
+export class TaskFormComponent {
   private ts = inject(TranslateService);
 
   mode = input.required<FormMode>();
@@ -24,7 +23,19 @@ export class TaskFormComponent implements OnInit {
   formSubmit = output<Record<string, any>>();
   formCancel = output<void>();
 
-  form!: FormGroup;
+  title = new FormControl('', Validators.required);
+  description = new FormControl('');
+  status = new FormControl('pending', Validators.required);
+  priority = new FormControl('medium', Validators.required);
+  dueDate = new FormControl('');
+
+  form = new FormGroup({
+    title: this.title,
+    description: this.description,
+    status: this.status,
+    priority: this.priority,
+    dueDate: this.dueDate,
+  });
 
   statusOptions = [
     { value: 'pending', label: this.ts.t('status.pending') },
@@ -40,7 +51,7 @@ export class TaskFormComponent implements OnInit {
   constructor() {
     effect(() => {
       const data = this.taskData();
-      if (data && this.form) {
+      if (data) {
         this.form.patchValue({
           title: data.title,
           description: data.description || '',
@@ -50,20 +61,6 @@ export class TaskFormComponent implements OnInit {
         });
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      title: ['', Validators.required],
-      description: [''],
-      status: ['pending', Validators.required],
-      priority: ['medium', Validators.required],
-      dueDate: ['', this.mode() === 'create' ? Validators.required : []],
-    });
-  }
-
-  getControl(name: string): FormControl {
-    return this.form.get(name) as FormControl;
   }
 
   onSubmit(): void {

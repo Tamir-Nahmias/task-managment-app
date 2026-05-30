@@ -39,6 +39,7 @@ export class EditTaskPage implements OnInit {
       description: value['description'] || undefined,
       status: value['status'],
       priority: value['priority'],
+      dueDate: value['dueDate'] || undefined,
     };
     this.taskService.update(id, dto).subscribe(() => {
       this.router.navigate(['/home/watch-tasks']);

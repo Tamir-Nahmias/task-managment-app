@@ -1,14 +1,24 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "משימה לדוגמה",
-      "description": "זו משימה לדוגמה",
-      "priority": "גבוהה",
-      "dueDate": "2025-01-15",
-      "status": "ממתינה",
-      "createdAt": "2025-01-15",
-      "updatedAt": "2025-01-15"
+      "id": "22c9c00c-4077-4e7c-a8e9-8e0172c697c0",
+      "title": "fdgdfg",
+      "description": "dfgdf",
+      "status": "in_progress",
+      "priority": "low",
+      "dueDate": "2026-05-07",
+      "createdAt": "2026-05-29T11:07:53.138Z",
+      "updatedAt": "2026-05-29T11:07:53.138Z"
+    },
+    {
+      "id": "efb6b7d8-5185-4486-a537-c984dd2bb694",
+      "title": "sdfgdfg",
+      "description": "dfgdfg",
+      "status": "pending",
+      "priority": "medium",
+      "dueDate": "2026-05-15",
+      "createdAt": "2026-05-29T11:08:11.513Z",
+      "updatedAt": "2026-05-29T11:08:11.513Z"
     }
   ]
 }

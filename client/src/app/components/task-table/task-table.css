@@ -2,3 +2,58 @@
   display: block;
   width: 100%;
 }
+
+.task-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.task-card {
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 325px;
+}
+
+.task-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.task-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  word-break: break-word;
+}
+
+.task-card__actions {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.task-card__desc {
+  font-size: 0.85rem;
+  color: #4b5563;
+  margin: 0.5rem 0 0;
+  line-height: 1.4;
+}
+
+.task-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.task-card__date {
+  font-size: 0.8rem;
+  color: #6b7280;
+}

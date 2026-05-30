@@ -43,7 +43,8 @@ textarea ~ .floating-field__label {
 }
 
 .floating-field__input:focus ~ .floating-field__label,
-.floating-field--has-value .floating-field__label {
+.floating-field--has-value .floating-field__label,
+.floating-field--always-float .floating-field__label {
   top: 0;
   transform: translateY(-50%);
   font-size: 0.75rem;

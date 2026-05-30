@@ -3,6 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { ButtonComponent, ButtonState } from '../components/button/button';
 import { TranslatePipe } from '../i18n/translate.pipe';
 import { TranslateService } from '../i18n/translate.service';
+import { BreakpointService } from '../services/breakpoint.service';
 
 interface NavItem {
   label: string;
@@ -18,6 +19,7 @@ interface NavItem {
 })
 export class HomeComponent {
   private ts = inject(TranslateService);
+  bp = inject(BreakpointService);
 
   navItems: NavItem[] = [
     { label: this.ts.t('nav.createTask'), route: 'create-task' },

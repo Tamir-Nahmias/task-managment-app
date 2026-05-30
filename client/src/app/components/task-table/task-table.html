@@ -1,47 +1,73 @@
-<div class="table-responsive w-100">
-  <table class="table table-striped table-hover align-middle">
-    <thead class="table-dark">
-      <tr>
-        <th scope="col" class="text-center">{{ 'table.headers.actions' | translate }}</th>
-        <th scope="col">{{ 'table.headers.dueDate' | translate }}</th>
-        <th scope="col">{{ 'table.headers.priority' | translate }}</th>
-        <th scope="col">{{ 'table.headers.status' | translate }}</th>
-        <th scope="col">{{ 'table.headers.description' | translate }}</th>
-        <th scope="col">{{ 'table.headers.title' | translate }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (task of data(); track task.id) {
+@if (bp.isMobile()) {
+  <div class="task-cards">
+    @for (task of data(); track task.id) {
+      <div class="task-card">
+        <div class="task-card__header">
+          <h3 class="task-card__title">{{ task.title }}</h3>
+          <div class="task-card__actions">
+            <button class="btn btn-sm btn-outline-primary" [title]="'table.actions.edit' | translate" (click)="onEdit(task.id)">&#9998;</button>
+            <button class="btn btn-sm btn-outline-danger" [title]="'table.actions.delete' | translate" (click)="onDelete(task.id)">&#128465;</button>
+          </div>
+        </div>
+        @if (task.description) {
+          <p class="task-card__desc">{{ task.description }}</p>
+        }
+        <div class="task-card__meta">
+          <span class="badge" [class.bg-warning]="task.status === 'pending'" [class.bg-info]="task.status === 'in_progress'">
+            {{ task.status === 'in_progress' ? ('status.inProgress' | translate) : ('status.pending' | translate) }}
+          </span>
+          <span class="badge" [class.bg-success]="task.priority === 'low'" [class.bg-secondary]="task.priority === 'medium'" [class.bg-danger]="task.priority === 'high'">
+            {{ task.priority === 'low' ? ('priority.low' | translate) : task.priority === 'medium' ? ('priority.medium' | translate) : ('priority.high' | translate) }}
+          </span>
+          <span class="task-card__date">{{ task.dueDate | date:'mediumDate' }}</span>
+        </div>
+      </div>
+    } @empty {
+      <p class="text-center text-muted py-4">{{ 'table.empty' | translate }}</p>
+    }
+  </div>
+} @else {
+  <div class="table-responsive w-100">
+    <table class="table table-striped table-hover align-middle">
+      <thead class="table-dark">
         <tr>
-          <td class="text-center">
-            <button class="btn btn-sm btn-outline-primary ms-2" [title]="'table.actions.edit' | translate" (click)="onEdit(task.id)">
-              &#9998;
-            </button>
-            <button class="btn btn-sm btn-outline-danger" [title]="'table.actions.delete' | translate" (click)="onDelete(task.id)">
-              &#128465;
-            </button>
-          </td>
-          <td>{{ task.dueDate | date:'mediumDate' }}</td>
-          <td>
-            <span class="badge" [class.bg-success]="task.priority === 'low'" [class.bg-secondary]="task.priority === 'medium'" [class.bg-danger]="task.priority === 'high'">
-              {{ task.priority === 'low' ? ('priority.low' | translate) : task.priority === 'medium' ? ('priority.medium' | translate) : ('priority.high' | translate) }}
-            </span>
-          </td>
-          <td>
-            <span class="badge" [class.bg-warning]="task.status === 'pending'" [class.bg-info]="task.status === 'in_progress'">
-              {{ task.status === 'in_progress' ? ('status.inProgress' | translate) : ('status.pending' | translate) }}
-            </span>
-          </td>
-          <td>{{ task.description }}</td>
-          <td>{{ task.title }}</td>
+          <th scope="col" class="text-center">{{ 'table.headers.actions' | translate }}</th>
+          <th scope="col">{{ 'table.headers.dueDate' | translate }}</th>
+          <th scope="col">{{ 'table.headers.priority' | translate }}</th>
+          <th scope="col">{{ 'table.headers.status' | translate }}</th>
+          <th scope="col">{{ 'table.headers.description' | translate }}</th>
+          <th scope="col">{{ 'table.headers.title' | translate }}</th>
         </tr>
-      } @empty {
-        <tr>
-          <td colspan="6" class="text-center text-muted py-4">
-            {{ 'table.empty' | translate }}
-          </td>
-        </tr>
-      }
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        @for (task of data(); track task.id) {
+          <tr>
+            <td class="text-center">
+              <button class="btn btn-sm btn-outline-primary ms-2" [title]="'table.actions.edit' | translate" (click)="onEdit(task.id)">&#9998;</button>
+              <button class="btn btn-sm btn-outline-danger" [title]="'table.actions.delete' | translate" (click)="onDelete(task.id)">&#128465;</button>
+            </td>
+            <td>{{ task.dueDate | date:'mediumDate' }}</td>
+            <td>
+              <span class="badge" [class.bg-success]="task.priority === 'low'" [class.bg-secondary]="task.priority === 'medium'" [class.bg-danger]="task.priority === 'high'">
+                {{ task.priority === 'low' ? ('priority.low' | translate) : task.priority === 'medium' ? ('priority.medium' | translate) : ('priority.high' | translate) }}
+              </span>
+            </td>
+            <td>
+              <span class="badge" [class.bg-warning]="task.status === 'pending'" [class.bg-info]="task.status === 'in_progress'">
+                {{ task.status === 'in_progress' ? ('status.inProgress' | translate) : ('status.pending' | translate) }}
+              </span>
+            </td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.title }}</td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="6" class="text-center text-muted py-4">
+              {{ 'table.empty' | translate }}
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

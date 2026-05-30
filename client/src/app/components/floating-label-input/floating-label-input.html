@@ -1,4 +1,4 @@
-<div class="floating-field" [class.floating-field--has-value]="control().value" [class.floating-field--invalid]="control().invalid && control().touched">
+<div class="floating-field" [class.floating-field--has-value]="control().value" [class.floating-field--always-float]="type() === 'date'" [class.floating-field--invalid]="control().invalid && control().touched">
   @if (type() === 'textarea') {
     <textarea
       class="floating-field__input"

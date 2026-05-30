@@ -57,3 +57,20 @@ small, .small, .text-muted {
   font-weight: 300;
   font-style: normal;
 }
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 425px) {
+  html, body {
+    font-size: 14px;
+  }
+
+  .container-fluid {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}

@@ -25,6 +25,7 @@ export interface UpdateTaskInterface {
     description?: string;
     status: TaskStatus;
     priority: TaskPriority;
+    dueDate?: Date;
 }
 
 export interface PatchTaskInterface {

@@ -1,5 +1,5 @@
 import { UpdateTaskInterface, type TaskStatus, type TaskPriority } from '../model/task.model';
-import { IsString, IsOptional, IsEnum, IsNotEmpty } from 'class-validator';
+import { IsString, IsOptional, IsEnum, IsNotEmpty, IsDateString } from 'class-validator';
 import { i18nValidationMessage } from 'nestjs-i18n';
 
 export class UpdateTaskDto implements UpdateTaskInterface {
@@ -16,4 +16,8 @@ export class UpdateTaskDto implements UpdateTaskInterface {
 
   @IsEnum(['low', 'medium', 'high'], { message: i18nValidationMessage('errors.VALIDATION.PRIORITY_INVALID') })
   priority: TaskPriority;
+
+  @IsDateString()
+  @IsOptional()
+  dueDate?: Date;
 }
